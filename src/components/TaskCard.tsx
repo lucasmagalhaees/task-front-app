@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Trash2, Pencil, CheckCircle2, Circle } from "lucide-react"
+import { Trash2, Pencil, CheckCircle2, Circle, ExternalLink } from "lucide-react"
 import type { Task } from "@/types/task"
 
 interface Props {
@@ -56,6 +56,14 @@ export default function TaskCard({ task, onToggle, onEdit, onDelete }: Props) {
       </span>
 
       <div className="shrink-0 flex gap-1">
+        <Link
+          href={`/tasks/${task.id}`}
+          className="p-1.5 rounded hover:bg-purple-50 text-gray-400 hover:text-purple-600 transition-colors"
+          aria-label="Ver detalhes e plano de ação"
+          title="Ver detalhes / Plano de ação IA"
+        >
+          <ExternalLink className="h-4 w-4" />
+        </Link>
         <button
           onClick={() => onEdit(task)}
           className="p-1.5 rounded hover:bg-gray-100 text-gray-400 hover:text-gray-700 transition-colors"

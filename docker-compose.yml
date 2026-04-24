@@ -1,0 +1,13 @@
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      # URL relativa usada pelo browser (proxy interno do Next.js)
+      NEXT_PUBLIC_API_URL: /api
+      # URL do backend vista pelo container do Next.js
+      API_URL: http://backend:8000
+networks:
+  default:
+    name: taskmanager-net
