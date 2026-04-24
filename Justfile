@@ -30,6 +30,10 @@ down:
 build-image:
     docker compose build
 
+# Rebuild forçado sem cache (útil quando variáveis de build mudam)
+rebuild:
+    docker compose build --no-cache
+
 # Ver logs em tempo real
 logs:
     docker compose logs -f frontend
